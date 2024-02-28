@@ -1,5 +1,6 @@
 package org.example.examenfinaldi;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,18 +27,9 @@ public class HelloController {
 
     private MainViewController mainViewController;
 
-    @FXML
-    public void initialize() {
-        biblioteca = new Biblioteca();
-
-    }
 
     @FXML
     void onAñadirLibroButtonClick(ActionEvent event) throws IOException {
-        mainViewController = new MainViewController();
-
-        biblioteca = mainViewController.getBiblioteca();
-
         String isbn = tfIsbn.getText();
         String titulo = tfTitulo.getText();
 
@@ -62,6 +54,7 @@ public class HelloController {
             alert.showAndWait();
 
             if (alert.getResult().getText().equals("Aceptar")) {
+                mainViewController.setBiblioteca(biblioteca);
                 mainViewController.getLvLibros().setItems(FXCollections.observableArrayList(biblioteca.getLibros()));
                 ScreenLoader.loadScreen("main-view.fxml", (Stage) btAñadirLibro.getScene().getWindow());
             }
@@ -73,6 +66,12 @@ public class HelloController {
         }
 
         System.out.println("Número de libros en la biblioteca: " + biblioteca.getLibros().size());
+    }
+
+    public void setMainViewController(MainViewController mainViewController) {
+        this.mainViewController = mainViewController;
+        biblioteca = mainViewController.getBiblioteca();
+        System.out.println(biblioteca.getLibros());
     }
 
     public void limpiar() {
