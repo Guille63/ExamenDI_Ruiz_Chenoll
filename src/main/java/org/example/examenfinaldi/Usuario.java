@@ -2,6 +2,11 @@ package org.example.examenfinaldi;
 
 import java.time.LocalDate;
 
+/**
+ * Clase que representa un usuario
+ * @version 1.0
+ * @author Guillem
+ */
 public class Usuario {
     private String dniUsuario;
     private LocalDate fechaAltaSancion;

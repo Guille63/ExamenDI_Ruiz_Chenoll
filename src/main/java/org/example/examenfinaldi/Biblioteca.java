@@ -4,7 +4,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Clase que representa una biblioteca
+ * @author Guillem
+ * @version 1.0
+ */
 public class Biblioteca {
     private List<Libro> libros;
     private List<Prestamo> prestamos;
@@ -110,26 +114,56 @@ public class Biblioteca {
         }
     }
 
+    /**
+     * Obtiene la lista de libros en la biblioteca.
+     *
+     * @return la lista de libros.
+     */
     public List<Libro> getLibros() {
         return libros;
     }
 
+    /**
+     * Obtiene la lista de préstamos en la biblioteca.
+     *
+     * @return la lista de préstamos.
+     */
     public List<Prestamo> getPrestamos() {
         return prestamos;
     }
 
+    /**
+     * Obtiene la lista de usuarios en la biblioteca.
+     *
+     * @return la lista de usuarios.
+     */
     public List<Usuario> getUsuarios() {
         return usuarios;
     }
 
+    /**
+     * Establece la lista de libros en la biblioteca.
+     *
+     * @param libros la nueva lista de libros.
+     */
     public void setLibros(List<Libro> libros) {
         this.libros = libros;
     }
 
+    /**
+     * Establece la lista de préstamos en la biblioteca.
+     *
+     * @param prestamos la nueva lista de préstamos.
+     */
     public void setPrestamos(List<Prestamo> prestamos) {
         this.prestamos = prestamos;
     }
 
+    /**
+     * Establece la lista de usuarios en la biblioteca.
+     *
+     * @param usuarios la nueva lista de usuarios.
+     */
     public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
     }

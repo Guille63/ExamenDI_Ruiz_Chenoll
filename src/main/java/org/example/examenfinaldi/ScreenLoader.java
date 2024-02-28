@@ -7,6 +7,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Clase que carga una nueva vista
+ */
 public class ScreenLoader {
     public static void loadScreen(String viewPath, Stage stage) throws IOException {
         Parent view = FXMLLoader.load(ScreenLoader.class.getResource(viewPath));
