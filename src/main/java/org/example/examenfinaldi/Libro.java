@@ -76,4 +76,13 @@ public class Libro {
     public void setFechaEdicion(LocalDate fechaEdicion) {
         this.fechaEdicion = fechaEdicion;
     }
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "idLibro='" + idLibro + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", isbn='" + isbn + '\'' +
+                '}';
+    }
 }

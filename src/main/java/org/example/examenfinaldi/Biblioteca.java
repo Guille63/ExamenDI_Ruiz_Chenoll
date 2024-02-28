@@ -24,6 +24,7 @@ public class Biblioteca {
 
     /**
      * Añade un libro a la biblioteca, si ya existe un libro con el mismo id o isbn, lo
+     * ignora y no lo añade
      *
      * @param idLibro id del libro
      * @param titulo  titulo del libro
@@ -39,6 +40,12 @@ public class Biblioteca {
         libros.add(libro);
     }
 
+    /**
+     * Da de baja un libro de la biblioteca
+     * Si la id del libro coincide con la id de un libro de la lista de libros, lo elimina
+     *
+     * @param idLibro id del libro a dar de baja
+     */
     public void bajaLibro(String idLibro) {
         for (Libro libro : libros) {
             if (libro.getIdLibro().equals(idLibro)) {
@@ -83,6 +90,14 @@ public class Biblioteca {
         }
     }
 
+    /**
+     * Devuelve un libro
+     * Si el libro se devuelve fuera de plazo, se marca como devuelto fuera de tiempo
+     * Si el libro se devuelve en plazo, se marca como devuelto a tiempo
+     *
+     * @param idLibro    id del libro a devolver
+     * @param dniUsuario id del usuario que devuelve el libro
+     */
     public void devolver(String idLibro, String dniUsuario) {
         for (Prestamo prestamo : prestamos) {
             if (prestamo.getIdLibro().equals(idLibro) && prestamo.getDniUsuario().equals(dniUsuario)) {
@@ -118,18 +133,6 @@ public class Biblioteca {
     public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
-
-//    public static void main(String[] args) {
-//        Libro libro = new Libro("1", "El Quijote", "1234567890");
-//        Libro libro3 = new Libro("1", "El Quijote", "1234567890");
-//        Libro libro2 = new Libro("2", "El Señor de los Anillos", "9876543210");
-//
-//        Biblioteca biblioteca = new Biblioteca();
-//        biblioteca.altaLibro(libro.getIdLibro(), libro.getTitulo(), libro.getIsbn());
-//        biblioteca.altaLibro(libro2.getIdLibro(), libro2.getTitulo(), libro2.getIsbn());
-//
-//        System.out.println(biblioteca.getLibros().size());
-//    }
 
 
 }
